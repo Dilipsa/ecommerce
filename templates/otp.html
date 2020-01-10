@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class = "container">
+<div class="row">
+  <div class="col-lg-4 offset-3">
+    <h5>Please verify your mobile number</h5>
+
+
+    <form class="" action="/accounts/otp/" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div id="login-box1">
+        <div class="left">
+          <h1>Verify otp </h1>
+          <input type="text" name="otp" placeholder="otp" />
+          <input type="submit" name="signup_submit" value="Sign me up" />
+        </div>
+
+    </form>
+  </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

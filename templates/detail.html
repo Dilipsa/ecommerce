@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+        <div class="container div_space">
+          <div class="row">
+              <div class="col-lg-3 offset-2">
+                  <figure>
+                      <div class="image_div">
+                        <a><img src="{{ det.cloth_image.url }}" alt=""></a>
+                      </div>
+                      {% if det.new %}
+                       <div class="p-status">new</div>
+                       {% endif %}
+                  </figure>
+                  <div class="product-text">
+                      <h6>{{det.cloth_color}} Leggings with details</h6>
+                      <p><i class="fa fa-inr" aria-hidden="true"></i>{{det.cloth_price}}/-</p>
+                        <h2><a href="{% url 'detail' pk=det.pk %}"></h2><h1><i class="fa fa-shopping-cart" aria-hidden="true" style="color:#FF3300;"></i></h1></a>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+              </div>
+              <div class="col-lg-4 offset-1">
+                <h3>latest leggings</h3>
+                <div class="row box">
+                  <div class="col-4">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    <div>pay in delivery</span></div>
+                  </div>
+                  <div class="col-4">
+                    <i class="fa fa-truck" aria-hidden="true"></i><div>Doorstep delivery</div>
+                  </div>
+                  <div class="col-4">
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                    <div>10 days replacenent </div>
+                  </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+<form action="/cart/" method="POST">
+              {% csrf_token %}
+              <input type="submit" value="{{ det.cloth_image.url }}" name="cloth_imge">
+              <input type="hidden" value="{{det.cloth_price}}" name="cloth_price">
+              <input type="hidden" value="{{ det.cloth_offer}}" name="cloth_offer">
+              <input type="hidden" value="{{ det.cloth_size}}" name="cloth_size">
+              <input type="hidden" value="{{ det.cloth_color}}" name="cloth_color">
+
+          </form>
+
+
+{% endblock %}

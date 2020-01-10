@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% for o in data %}
+    <div class="col-lg-3">
+     <img src="{{ o.cloth_image.url }}"alt="...">
+     <button type="button" class="btn btn-success">Rs{{ o.cloth_price }}/-</button>
+     <button type="button" class="btn btn-info">{{ o.cloth_size }}</button>
+        <div>price:Rs{{ o.cloth_price }}/-<span>
+   offer:Rs{{ o.cloth_offer }}/- </span></div>
+
+        <div>color:{{ o.cloth_color }}<span>
+        size:{{ o.cloth_size }}</span></div>
+    <div class="card-body">
+      <p class="card-text">Latest Attractive Leggings at Offordable Price</p>
+    </div>
+
+  </div>
+  {% endfor %}
+    </div>
+    </div>
+{% endblock %}

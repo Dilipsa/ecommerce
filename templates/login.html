@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+{% for message in messages %}
+  {{ message }}
+
+
+{% endfor %}
+
+<form class="div_space" action="/accounts/login/" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div id="login-box1">
+    <div class="login_form">
+      <h1>Login </h1>
+
+      <input type="text" name="username" placeholder="Username" />
+      <input type="password" name="password" placeholder=" Password" />
+      <input type="submit" name="" value="submit">
+    </div>
+  </div
+</form>
+
+{% endblock %}
